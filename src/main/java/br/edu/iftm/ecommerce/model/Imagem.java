@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Imagem {
+    @EqualsAndHashCode.Include
     private int id;
     private String nome;
     private String codigo;
