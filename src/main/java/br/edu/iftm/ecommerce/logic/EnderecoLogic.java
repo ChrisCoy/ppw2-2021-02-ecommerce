@@ -14,6 +14,9 @@ public class EnderecoLogic implements CrudLogic<Endereco>{
     
     @Override
     public Endereco salvar(Endereco entidade) throws ErroSistemaException, ErroNegocioException{
+        
+        //System.err.println(entidade.getCliente().getNome());
+        
         entidade = this.repository.save(entidade);
         return entidade;
     }

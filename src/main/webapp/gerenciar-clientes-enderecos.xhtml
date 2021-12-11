@@ -13,9 +13,9 @@
         <ec:toolbarCrud crudBean="#{enderecoBean}"/>
         <p:spacer height="50px"></p:spacer>
         <p:panel header="">
-            <p:panelGrid columns="4" rendered="#{enderecoBean.estadoDaTela.name() != 'BUSCAR'}">
+            <p:panelGrid columns="4" layout="grid" rendered="#{enderecoBean.estadoDaTela.name() != 'BUSCAR'}">
                 <p:outputLabel value="Cliente"></p:outputLabel>
-                <p:selectOneMenu value="#{enderecoBean.entidade.cliente}">
+                <p:selectOneMenu value="#{enderecoBean.entidade.cliente}" converter="clienteConverter">
                     <f:selectItem itemLabel="Selecione"></f:selectItem>
                     <f:selectItems value="#{enderecoBean.listaClientes()}" var="cat" itemLabel="#{cat.nome}" 
                                    itemValue="#{cat}"></f:selectItems>

@@ -43,15 +43,15 @@ public class Cliente implements Serializable{
     private String senha;
 
     @Column(name = "data_nacimento")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dataNacimento;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_cadastro")
+    @Temporal(TemporalType.DATE)
     private Date dataCadastro;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_desativacao")
+    @Temporal(TemporalType.DATE)
     private Date dataDesativacao;
 
     @OneToMany(mappedBy = "cliente")
