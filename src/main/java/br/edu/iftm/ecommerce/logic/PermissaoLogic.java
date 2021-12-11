@@ -20,12 +20,12 @@ public class PermissaoLogic implements CrudLogic<Permissao>{
         entidade = this.repository.save(entidade);
         return entidade;
     }
-
+    
     @Override
     public void remover(Permissao entidade) throws ErroSistemaException, ErroNegocioException{
         this.repository.remove(entidade.getId());
     }
-
+    
     @Override
     public Permissao buscarPorId(Permissao entidade) throws ErroSistemaException, ErroNegocioException {
         return this.repository.findByID(entidade.getId());
@@ -35,6 +35,4 @@ public class PermissaoLogic implements CrudLogic<Permissao>{
     public List<Permissao> buscar(Permissao entidade) throws ErroSistemaException, ErroNegocioException {
         return this.repository.list();
     }
-
-    
 }

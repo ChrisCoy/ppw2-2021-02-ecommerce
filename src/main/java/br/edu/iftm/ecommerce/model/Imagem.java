@@ -1,5 +1,6 @@
 package br.edu.iftm.ecommerce.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -10,7 +11,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Imagem {
+public class Imagem implements Serializable {
     @EqualsAndHashCode.Include
     private int id;
     private String nome;

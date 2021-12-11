@@ -22,7 +22,4 @@ public class PermissaoBean extends CrudBean<Permissao, PermissaoLogic> {
     public PermissaoLogic getLogic() {
         return this.logic;
     }
-    
-    
-    
 }

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="template.xhtml"
+                xmlns:ec="http://xmlns.jcp.org/jsf/composite/ec">
+
+    <h:form>
+        <h1>Gerenciar Clientes</h1>
+        <ec:toolbarCrud crudBean="#{clienteBean}"/>
+        <p:spacer height="50px"></p:spacer>
+        <p:panel header="">
+            <p:panelGrid columns="2" rendered="#{clienteBean.estadoDaTela.name() != 'BUSCAR'}">
+                <p:outputLabel value="Nome"></p:outputLabel>
+                <p:inputText value="#{clienteBean.entidade.nome}"></p:inputText>
+                <p:outputLabel value="Sobrenome"></p:outputLabel>
+                <p:inputText value="#{clienteBean.entidade.sobrenome}"></p:inputText>
+                <p:outputLabel value="Sexo"></p:outputLabel>
+                <p:inputText value="#{clienteBean.entidade.sexo}"></p:inputText>
+                <p:outputLabel value="Cpf"></p:outputLabel>
+                <p:inputText value="#{clienteBean.entidade.cpf}"></p:inputText>
+                <p:outputLabel value="Rg"></p:outputLabel>
+                <p:inputText  value="#{clienteBean.entidade.rg}"></p:inputText>
+                <p:outputLabel value="Orgão Expedidor"></p:outputLabel>
+                <p:inputText  value="#{clienteBean.entidade.orgaoExpedidor}"></p:inputText>
+                <p:outputLabel value="E-mail"></p:outputLabel>
+                <p:inputText  value="#{clienteBean.entidade.email}"></p:inputText>
+                <p:outputLabel value="Senha"></p:outputLabel>
+                <p:password  value="#{clienteBean.entidade.senha}"></p:password>
+                <p:outputLabel value="Data de Nascimento"></p:outputLabel>
+                <p:datePicker  value="#{clienteBean.entidade.dataNacimento}"></p:datePicker>
+
+            </p:panelGrid>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" />
+            </p:confirmDialog>
+
+            <p:dataTable value="#{clienteBean.entidades}" var="usr" rendered="#{clienteBean.estadoDaTela.name() == 'BUSCAR'}">
+                <p:column>
+                    <p:commandButton actionListener="#{clienteBean.remover(usr)}" update="@form" icon="pi pi-trash">
+                        <p:confirm header="Confirma" message="Tem certeza que deseja deletar?" icon="pi pi-info-circle"/>
+                    </p:commandButton>
+                    <p:commandButton actionListener="#{clienteBean.editar(usr)}" update="@form" icon="pi pi-pencil"></p:commandButton>
+                </p:column>
+                <p:column headerText="Nome">
+                    <h:outputText value="#{usr.nome}"></h:outputText>
+                </p:column>
+                <p:column headerText="Sobrenome">
+                    <h:outputText value="#{usr.sobrenome}"></h:outputText>
+                </p:column>
+                <p:column headerText="sexo">
+                    <h:outputText value="#{usr.sexo}"></h:outputText>
+                </p:column>
+                <p:column headerText="cpf">
+                    <h:outputText value="#{usr.cpf}"></h:outputText>
+                </p:column>
+                <p:column headerText="rg">
+                    <h:outputText value="#{usr.rg}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </h:form>
+
+</ui:composition>
+
